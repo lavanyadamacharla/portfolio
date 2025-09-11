@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Damacharla Lavanya - Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body {margin:0; font-family:Arial,sans-serif; scroll-behavior:smooth; background-color:#000; color:#fff;}
+
+nav {position:fixed; top:0; width:100%; background-color:#111; display:flex; justify-content:space-between; align-items:center; padding:12px 30px; z-index:1000; box-shadow:0 2px 5px rgba(0,0,0,0.5);}
+.nav-left, .nav-right {display:flex; align-items:center; gap:20px;}
+nav a {text-decoration:none; color:#00ffff; font-weight:bold; transition:color 0.3s;}
+nav a:hover {color:#fff;}
+.btn-resume-header {padding:8px 20px; border:none; border-radius:8px; background-color:#00ffff; color:#000; font-weight:bold; cursor:pointer; transition:0.3s;}
+.btn-resume-header:hover {background-color:#0ff;}
+.nav-right a.social-icon {color:#00ffff; font-size:20px; transition:0.3s;}
+.nav-right a.social-icon:hover {transform:scale(1.2); color:#fff;}
+
+section {min-height:100vh; padding:120px 20px 40px 20px; text-align:center;}
+
+#home {background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); display:flex; justify-content:center; align-items:center; padding:120px 20px;}
+.home-card {background: linear-gradient(135deg, #111, #1a1a1a); border-radius:20px; padding:60px 40px; box-shadow:0 0 40px #00ffff; max-width:700px; text-align:center; transition: transform 0.3s, box-shadow 0.3s;}
+.home-card:hover {transform: scale(1.02); box-shadow:0 0 60px #0ff;}
+.avatar {width:180px; height:180px; border-radius:50%; background:linear-gradient(135deg,#ff9a9e,#fbc2eb); display:flex; justify-content:center; align-items:center; margin:0 auto 20px auto; box-shadow:0 0 25px #fbc2eb;}
+.avatar i {font-size:90px; color:#fff;}
+.home-card h1 {font-size:2.5em; margin-bottom:10px; background: linear-gradient(to right, #00ffff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
+.home-card p {font-size:1.2em; color:#ccc; margin-bottom:20px;}
+.home-card .intro {font-size:1em; color:#ddd; line-height:1.5; margin-top:10px;}
+.cta-buttons {display:flex; justify-content:center; gap:15px; margin-top:25px; flex-wrap:wrap;}
+.btn-cta, .btn-resume {padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; transition:0.3s;}
+.btn-cta {background: linear-gradient(to right, #00ffff, #ff00ff); color:#000;}
+.btn-cta:hover {background: linear-gradient(to right, #ff00ff, #00ffff);}
+.btn-resume {background: linear-gradient(to right, #ff00ff, #00ffff); color:#000;}
+.btn-resume:hover {background: linear-gradient(to right, #00ffff, #ff00ff);}
+.social-icons {margin-top:20px;}
+.social-icons a {color:#0ff; font-size:22px; margin:0 10px; transition:0.3s;}
+.social-icons a:hover {color:#fff; transform:scale(1.2);}
+
+#about {background-color:#000; padding:80px 20px; display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:40px;}
+.about-card {background: linear-gradient(135deg,#111,#222); padding:40px; border-radius:20px; box-shadow:0 0 25px #00ffff; max-width:800px; flex:1 1 400px; text-align:left;}
+.about-card .avatar {width:150px; height:150px; border-radius:50%; background:linear-gradient(135deg,#f6d365,#fda085); display:flex; justify-content:center; align-items:center; float:left; margin-right:30px; margin-bottom:20px; box-shadow:0 0 15px #fda085;}
+.about-card .avatar i {font-size:80px; color:#fff;}
+.about-card h2 { color:#00ffff; margin-bottom:15px; }
+.about-card p { color:#fff; line-height:1.6; margin-bottom:10px; }
+.about-icons {display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;}
+.about-icons div {text-align:center; background-color:#222; padding:15px 20px; border-radius:12px; box-shadow:0 0 10px #00ffff; flex:1 1 100px;}
+.about-icons i {font-size:28px; margin-bottom:5px;}
+.about-icons p {margin:0; font-weight:bold; color:#fff;}
+.about-icons .icon1 i{color:#ff4500;}
+.about-icons .icon2 i{color:#32cd32;}
+.about-icons .icon3 i{color:#1e90ff;}
+.about-icons .icon4 i{color:#ff69b4;}
+
+/* Skills Section */
+#skills {background-color:#1a1a1a; padding:60px 20px;}
+#skills h2 {font-size:2.2em; color:#00ffff; margin-bottom:40px;}
+.skills-circle-container {display:grid; grid-template-columns:repeat(3,1fr); gap:40px; max-width:900px; margin:0 auto;}
+.skill-circle {position:relative; width:140px; height:140px; margin:0 auto;}
+.skill-circle svg {transform:rotate(-90deg);}
+.skill-circle circle{fill:none; stroke-width:10; stroke-linecap:round;}
+.skill-bg{stroke:#333;}
+.skill-progress{stroke-dasharray:440; stroke-dashoffset:440; stroke-linecap:round; transition:stroke-dashoffset 1.5s ease-in-out;}
+.skill-circle i{position:absolute; top:45%; left:50%; transform:translate(-50%,-50%); font-size:32px;}
+.skill-circle p{text-align:center; margin-top:10px; font-weight:bold; color:#fff;}
+.skill-js .skill-progress{stroke:#f7df1e;} .skill-apex .skill-progress{stroke:#ff6f61;} .skill-html .skill-progress{stroke:#e34f26;}
+.skill-css .skill-progress{stroke:#264de4;} .skill-react .skill-progress{stroke:#61dafb;} .skill-data .skill-progress{stroke:#4db33d;}
+.skill-js i{color:#f7df1e;} .skill-apex i{color:#ff6f61;} .skill-html i{color:#e34f26;}
+.skill-css i{color:#264de4;} .skill-react i{color:#61dafb;} .skill-data i{color:#4db33d;}
+
+
+#projects {background-color:#000; padding:60px 20px;}
+#projects h2 {font-size:2em; margin-bottom:40px; color:#00ffff;}
+.projects-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
+.project-card {background: linear-gradient(135deg,#111,#222); border-radius:15px; overflow:hidden; position:relative; box-shadow:0 0 15px #00ffff; transition:transform 0.3s,box-shadow 0.3s;}
+.project-card:hover {transform:scale(1.03); box-shadow:0 0 25px #00ffff;}
+.project-icon {padding:50px; background-color:#222; text-align:center; border-bottom:1px solid #00ffff;}
+.project-icon i{font-size:80px; transition:0.3s;}
+.project-content {padding:20px; text-align:left;}
+.project-content h3 {color:#00ffff; margin-bottom:10px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+.project-content p {color:#fff; line-height:1.5; margin-bottom:10px;}
+.project-skills {display:flex; gap:10px; flex-wrap:wrap;}
+.project-skills i {font-size:22px; transition:transform 0.3s;}
+.project-skills i:hover {transform:scale(1.3);}
+.project-1 .project-icon i {color:#ff4500;}
+.project-2 .project-icon i {color:#32cd32;}
+.project-3 .project-icon i {color:#1e90ff;}
+
+#contact {background: linear-gradient(135deg,#0f2027,#203a43,#2c5364); padding:80px 20px; display:flex; flex-direction:column; align-items:center; color:#fff;}
+#contact h2 {font-size:2em; margin-bottom:30px; color:#00ffff;}
+.contact-card {background: linear-gradient(135deg,#111,#222); padding:40px 30px; border-radius:15px; box-shadow:0 0 20px #00ffff; max-width:500px; width:100%; text-align:center;}
+.contact-card p {margin-bottom:20px; font-size:1.1em;}
+.contact-card input, .contact-card textarea {width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:none; outline:none; font-size:1em;}
+.contact-card input:focus, .contact-card textarea:focus {box-shadow:0 0 10px #00ffff;}
+.contact-card button {padding:12px 25px; border:none; border-radius:8px; background: linear-gradient(to right, #00ffff, #ff00ff); color:#000; font-weight:bold; cursor:pointer; transition:0.3s;}
+.contact-card button:hover {background: linear-gradient(to right, #ff00ff, #00ffff);}
+.contact-socials {display:flex; justify-content:center; gap:20px; margin-top:20px;}
+.contact-socials a {color:#00ffff; font-size:24px; transition:0.3s;}
+.contact-socials a:hover {color:#fff; transform:scale(1.2);}
+
+@media screen and (max-width:768px) { .skills-circle-container {grid-template-columns:repeat(2,1fr); gap:30px;} }
+@media screen and (max-width:480px) { .skills-circle-container {grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+
+<nav>
+  <div class="nav-left">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-right">
+    <a href="LavanyaResume.pdf" target="_blank"><button class="btn-resume-header">Resume</button></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/yourusername" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com/yourusername" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+    <a href="https://instagram.com/yourusername" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+  </div>
+</nav>
+
+
+<section id="home">
+  <div class="home-card">
+    <div class="avatar"><i class="fas fa-female"></i></div>
+    <h1>Damacharla Lavanya</h1>
+    <p>Salesforce Administrator | Tech Enthusiast | Problem Solver</p>
+    <p class="intro">I specialize in streamlining business processes, optimizing workflows, and delivering efficient Salesforce solutions. Passionate about learning and implementing new technologies to drive success.</p>
+    <div class="cta-buttons">
+      <a href="#contact"><button class="btn-cta">Get in Touch</button></a>
+      <a href="LavanyaResume.pdf" target="_blank"><button class="btn-resume">Download Resume</button></a>
+    </div>
+    <div class="social-icons">
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+</section>
+
+
+<section id="about">
+<div class="about-card">
+    <div class="avatar"><i class="fas fa-female"></i></div>
+    <h2>About Me</h2>
+    <p>Hi! I’m Damacharla Lavanya, a passionate Salesforce Administrator dedicated to streamlining business operations and improving workflows.</p>
+    <p>I have hands-on experience in configuring Salesforce, creating custom reports, automating business processes with Flow and Apex, and enhancing team productivity.</p>
+    <p>My goal is to deliver efficient solutions that improve user experience and provide measurable business value. I enjoy learning new technologies and collaborating on innovative projects.</p>
+    <div class="about-icons">
+        <div class="icon1"><i class="fas fa-user-tie"></i><p>Salesforce Admin</p></div>
+        <div class="icon2"><i class="fas fa-lightbulb"></i><p>Tech Enthusiast</p></div>
+        <div class="icon3"><i class="fas fa-briefcase"></i><p>Problem Solver</p></div>
+        <div class="icon4"><i class="fas fa-chart-line"></i><p>Data Analysis</p></div>
+    </div>
+</div>
+</section>
+
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills-circle-container">
+    <div class="skill-circle skill-js" data-percent="65">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fab fa-js-square"></i>
+        <p>JavaScript</p>
+    </div>
+    <div class="skill-circle skill-apex" data-percent="75">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fas fa-code"></i>
+        <p>Apex</p>
+    </div>
+    <div class="skill-circle skill-html" data-percent="90">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fab fa-html5"></i>
+        <p>HTML5</p>
+    </div>
+    <div class="skill-circle skill-css" data-percent="85">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fab fa-css3-alt"></i>
+        <p>CSS3</p>
+    </div>
+    <div class="skill-circle skill-react" data-percent="50">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fab fa-react"></i>
+        <p>React JS</p>
+    </div>
+    <div class="skill-circle skill-data" data-percent="70">
+        <svg width="140" height="140"><circle class="skill-bg" cx="70" cy="70" r="70"></circle><circle class="skill-progress" cx="70" cy="70" r="70"></circle></svg>
+        <i class="fas fa-database"></i>
+        <p>Data Analysis</p>
+    </div>
+</div>
+</section>
+
+
+<section id="projects">
+<h2>Projects</h2>
+<div class="projects-grid">
+    <div class="project-card project-1">
+        <div class="project-icon"><i class="fas fa-leaf"></i></div>
+        <div class="project-content">
+            <h3>Herbalife Salesforce</h3>
+            <p>Optimized workflows, enhanced user experience, and supported customer engagement tools for Herbalife Nutrition project.</p>
+            <div class="project-skills">
+                <i class="fab fa-js-square"></i>
+                <i class="fas fa-code"></i>
+                <i class="fab fa-react"></i>
+            </div>
+        </div>
+    </div>
+    <div class="project-card project-2">
+        <div class="project-icon"><i class="fas fa-hospital"></i></div>
+        <div class="project-content">
+            <h3>HealthCare CRM</h3>
+            <p>Implemented Salesforce flows and reports to streamline patient management and optimize healthcare operations.</p>
+            <div class="project-skills">
+                <i class="fab fa-js-square"></i>
+                <i class="fas fa-database"></i>
+                <i class="fas fa-code"></i>
+            </div>
+        </div>
+    </div>
+    <div class="project-card project-3">
+        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+        <div class="project-content">
+            <h3>E-Commerce CRM</h3>
+            <p>Configured Salesforce dashboards, automated order processing, and improved customer tracking for an e-commerce client.</p>
+            <div class="project-skills">
+                <i class="fab fa-html5"></i>
+                <i class="fab fa-css3-alt"></i>
+                <i class="fab fa-react"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<section id="contact">
+<h2>Contact Me</h2>
+<div class="contact-card">
+    <p>Let's connect! You can reach me via email or follow me on social media for updates and collaborations.</p>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+    <div class="contact-socials">
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const circles = document.querySelectorAll('.skill-circle');
+    circles.forEach(circle => {
+        const progress = circle.querySelector('.skill-progress');
+        const percent = circle.dataset.percent;
+        const radius = progress.r.baseVal.value;
+        const circumference = 2 * Math.PI * radius;
+        progress.style.strokeDasharray = circumference;
+        progress.style.strokeDashoffset = circumference;
+        setTimeout(() => {
+            const offset = circumference - (percent / 100) * circumference;
+            progress.style.strokeDashoffset = offset;
+        }, 500);
+    });
+});
+</script>
+
+</body>
+</html>
